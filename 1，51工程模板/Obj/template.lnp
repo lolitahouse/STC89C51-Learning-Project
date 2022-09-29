@@ -1,0 +1,3 @@
+".\Obj\main.obj" 
+TO ".\Obj\template" 
+PRINT(".\Listing\template.m51")

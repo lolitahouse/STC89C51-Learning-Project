@@ -1,0 +1,46 @@
+C51 COMPILER V9.01   LED                                                                   09/29/2022 18:39:42 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE LED
+OBJECT MODULE PLACED IN ..\Obj\led.obj
+COMPILER INVOKED BY: D:\programming learning software\MCU\keilC51\C51\BIN\C51.EXE ..\App\bsp_led\led.c BROWSE INCDIR(..\
+                    -App\bsp_led;..\Public) DEBUG OBJECTEXTEND PRINT(..\Listing\led.lst) OBJECT(..\Obj\led.obj)
+
+line level    source
+
+   1          #include  "led.h"
+   2          
+   3          /*
+   4                  函数名：Led_Show
+   5                  功能：  实现双向流水灯
+   6          */
+   7          void Led_Show(void)
+   8          {
+   9   1              uint_8 i=0;
+  10   1              
+  11   1              //实现流水灯
+  12   1              for(i=0;i<8;i++)
+  13   1              {
+  14   2                      LED_PORT = ~(0x01<<i);
+  15   2                      Delay_ms(500);
+  16   2              }
+  17   1              for(i=0;i<6;i++)
+  18   1              {
+  19   2                      LED_PORT = ~(0x40>>i);
+  20   2                      Delay_ms(500);
+  21   2              }
+  22   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     73    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,5 @@
+"..\Obj\main.obj",
+"..\Obj\public.obj",
+"..\Obj\beep.obj" 
+TO "..\Obj\Beep" 
+PRINT("..\Listing\Beep.m51")

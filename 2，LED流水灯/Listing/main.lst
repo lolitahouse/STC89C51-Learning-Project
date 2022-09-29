@@ -1,0 +1,42 @@
+C51 COMPILER V9.01   MAIN                                                                  09/29/2022 18:32:49 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN ..\Obj\main.obj
+COMPILER INVOKED BY: D:\programming learning software\MCU\keilC51\C51\BIN\C51.EXE main.c BROWSE INCDIR(..\App\bsp_led;..
+                    -\Public) DEBUG OBJECTEXTEND PRINT(..\Listing\main.lst) OBJECT(..\Obj\main.obj)
+
+line level    source
+
+   1          /**************************************************************************************
+   2          实验名称：      LED流水灯实验
+   3          实验现象：      LED模块的D1-D8灯作为流水灯，轮流点亮
+   4          实验单片机：普中A2                                                                                                                                                                
+   5          ***************************************************************************************/
+   6          
+   7          #include "public.h"
+   8          #include  "led.h"
+   9          
+  10          int main(void)
+  11          {
+  12   1              LED_PORT = ~0x01;  //点亮D1
+  13   1      
+  14   1              while(1)
+  15   1              {
+  16   2                 Led_Show();
+  17   2              }
+  18   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =      8    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
