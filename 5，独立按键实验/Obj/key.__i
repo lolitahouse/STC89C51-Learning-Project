@@ -1,0 +1,1 @@
+"..\App\bsp_key\key.c" BROWSE INCDIR(..\App\bsp_key;..\Public;..\App\bsp_led) DEBUG OBJECTEXTEND PRINT(..\Listing\key.lst) OBJECT(..\Obj\key.obj)

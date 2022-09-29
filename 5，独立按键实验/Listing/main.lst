@@ -1,0 +1,46 @@
+C51 COMPILER V9.01   MAIN                                                                  09/29/2022 20:06:02 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN ..\Obj\main.obj
+COMPILER INVOKED BY: D:\programming learning software\MCU\keilC51\C51\BIN\C51.EXE main.c BROWSE INCDIR(..\App\bsp_key;..
+                    -\Public;..\App\bsp_led) DEBUG OBJECTEXTEND PRINT(..\Listing\main.lst) OBJECT(..\Obj\main.obj)
+
+line level    source
+
+   1          /**************************************************************************************
+   2          实验名称：      独立按键实验
+   3          实验现象：      使用独立按键K1键来控制D1指示灯亮灭
+   4          实验单片机：普中A2                                                                                                                                                                
+   5          ***************************************************************************************/
+   6          
+   7          #include "public.h"
+   8          #include  "key.h"
+   9          #include  "led.h"
+  10          
+  11          int main(void)
+  12          {       
+  13   1              uint_8 key_value = 0;
+  14   1              
+  15   1              LED1 = 1;       //灯初始灭      
+  16   1              while(1)
+  17   1              {
+  18   2                      key_value = Key_Scan(KEY_SCAN_MODE); //扫描模式：单次扫描
+  19   2                      if(key_value==KEY1_PRESS)   //检测按键K1是否按下
+  20   2                              LED1 = !LED1;//LED1状态翻转     
+  21   2              }
+  22   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     14    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

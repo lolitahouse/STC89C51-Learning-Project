@@ -1,0 +1,5 @@
+"..\Obj\main.obj",
+"..\Obj\public.obj",
+"..\Obj\led.obj" 
+TO "..\Obj\Time0" 
+PRINT("..\Listing\Time0.m51")

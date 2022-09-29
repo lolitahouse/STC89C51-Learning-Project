@@ -1,0 +1,5 @@
+"..\Obj\main.obj",
+"..\Obj\public.obj",
+"..\Obj\hc595.obj" 
+TO "..\Obj\HC595" 
+PRINT("..\Listing\HC595.m51")

@@ -1,0 +1,107 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+D:\programming learning software\MCU\keilC51\STC89C51-Learning-Project\5，独立按键实验\Users\Key.uvproj
+Project File Date:  09/29/2022
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling main.c...
+compiling public.c...
+compiling key.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_MS?PUBLIC
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SMG_DISPLAY?KEY
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  GSMG_OWN_CODE
+    MODULE:  ..\Obj\key.obj (KEY)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  GSMG_OWN_CODE
+    MODULE:  ..\Obj\key.obj (KEY)
+    ADDRESS: 005DH
+Program Size: data=10.0 xdata=0 code=179
+creating hex file from "..\Obj\Key"...
+"..\Obj\Key" - 0 Error(s), 4 Warning(s).
+Build target 'Target 1'
+compiling key.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_10US?PUBLIC
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_MS?PUBLIC
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SMG_DISPLAY?KEY
+Program Size: data=9.0 xdata=0 code=63
+creating hex file from "..\Obj\Key"...
+"..\Obj\Key" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+compiling public.c...
+compiling key.c...
+compiling led.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_10US?PUBLIC
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SMG_DISPLAY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_SHOW?LED
+Program Size: data=10.0 xdata=0 code=136
+creating hex file from "..\Obj\Key"...
+"..\Obj\Key" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+compiling led.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_10US?PUBLIC
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SMG_DISPLAY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_SHOW?LED
+Program Size: data=10.0 xdata=0 code=136
+creating hex file from "..\Obj\Key"...
+"..\Obj\Key" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+compiling key.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_10US?PUBLIC
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SMG_DISPLAY?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_SHOW?LED
+Program Size: data=10.0 xdata=0 code=136
+creating hex file from "..\Obj\Key"...
+"..\Obj\Key" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(17): warning C206: 'key_scan': missing function-prototype
+MAIN.C(17): error C267: 'key_scan': requires ANSI-style prototype
+compiling key.c...
+Target not created
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_10US?PUBLIC
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_SHOW?LED
+Program Size: data=11.0 xdata=0 code=358
+creating hex file from "..\Obj\Key"...
+"..\Obj\Key" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_10US?PUBLIC
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_SHOW?LED
+Program Size: data=11.0 xdata=0 code=360
+creating hex file from "..\Obj\Key"...
+"..\Obj\Key" - 0 Error(s), 2 Warning(s).

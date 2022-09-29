@@ -1,0 +1,5 @@
+"..\Obj\main.obj",
+"..\Obj\public.obj",
+"..\Obj\dc_motor.obj" 
+TO "..\Obj\DC_MOTOR" 
+PRINT("..\Listing\DC_MOTOR.m51")

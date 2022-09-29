@@ -1,0 +1,6 @@
+"..\Obj\main.obj",
+"..\Obj\public.obj",
+"..\Obj\key_matrix.obj",
+"..\Obj\smg.obj" 
+TO "..\Obj\Key_Matrix" 
+PRINT("..\Listing\Key_Matrix.m51")

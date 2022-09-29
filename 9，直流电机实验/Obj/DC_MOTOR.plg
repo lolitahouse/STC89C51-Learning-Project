@@ -1,0 +1,19 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+D:\programming learning software\MCU\keilC51\STC89C51-Learning-Project\9，直流电机实验\Users\DC_MOTOR.uvproj
+Project File Date:  09/30/2022
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling main.c...
+compiling public.c...
+compiling dc_motor.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_10US?PUBLIC
+Program Size: data=9.0 xdata=0 code=77
+creating hex file from "..\Obj\DC_MOTOR"...
+"..\Obj\DC_MOTOR" - 0 Error(s), 1 Warning(s).

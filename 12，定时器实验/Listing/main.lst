@@ -1,0 +1,81 @@
+C51 COMPILER V9.01   MAIN                                                                  09/30/2022 00:48:27 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN ..\Obj\main.obj
+COMPILER INVOKED BY: D:\programming learning software\MCU\keilC51\C51\BIN\C51.EXE main.c BROWSE INCDIR(..\App\bsp_led;..
+                    -\Public) DEBUG OBJECTEXTEND PRINT(..\Listing\main.lst) OBJECT(..\Obj\main.obj)
+
+line level    source
+
+   1          /**************************************************************************************
+   2          实验名称：      外部中断0实验
+   3          实验现象：      按下K3键时，可通过外部中断来控制D1指示灯亮灭
+   4          实验单片机：普中A2                      
+   5          注意事项：      将红外接收传感器取下，防止对P3.2口干扰                                                                                                                                    
+   6          ***************************************************************************************/
+   7          
+   8          #include "public.h"
+   9          #include  "led.h"
+  10          
+  11          /*
+  12                  函数名： time0_Init
+  13                  功能：   定时器0中断配置函数，通过设置TH和TL可确定定时时间
+  14          */
+  15          void time0_Init(void)
+  16          {
+  17   1              TMOD |= 0X01;           //选择为定时器0模式，工作方式1
+  18   1              TH0 = 0XFC;                     //给定时器赋初值，定时1ms
+  19   1              TL0 = 0X18;     
+  20   1              ET0 = 1;                        //打开定时器0中断允许
+  21   1              EA = 1;                         //打开总中断
+  22   1              TR0 = 1;                        //打开定时器            
+  23   1      }
+  24          
+  25          
+  26          
+  27          int main(void)
+  28          {
+  29   1              time0_Init();   //定时器0中断配置
+  30   1                                              
+  31   1              while(1)
+  32   1              {
+  33   2                      
+  34   2              }
+  35   1      }
+  36          
+  37          
+  38          /*
+  39                  //定时器0中断函数       
+  40          */
+  41          void time0() interrupt 1 
+  42          {
+  43   1              static uint_16 count = 0;       //定义静态变量count
+  44   1              TH0 = 0XFC;                             //重新赋初值，定时1ms
+  45   1              TL0=0X18;
+  46   1              count++;
+  47   1              if(count == 1000)
+  48   1              {
+  49   2                      count = 0;
+  50   2                      LED1 = !LED1;   
+  51   2              }                                               
+  52   1      }
+  53          
+  54          
+C51 COMPILER V9.01   MAIN                                                                  09/30/2022 00:48:27 PAGE 2   
+
+  55          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     60    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

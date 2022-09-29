@@ -1,0 +1,24 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+D:\programming learning software\MCU\keilC51\STC89C51-Learning-Project\11，外部中断实验\Users\exti.uvproj
+Project File Date:  09/30/2022
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(41): error C202: 'LED1': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling main.c...
+compiling led.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_KEY_SCAN?KEY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_SHOW?LED
+Program Size: data=11.0 xdata=0 code=429
+creating hex file from "..\Obj\exti"...
+"..\Obj\exti" - 0 Error(s), 2 Warning(s).

@@ -1,0 +1,1 @@
+"..\App\bsp_key_matrix\key_matrix.c" BROWSE INCDIR(..\App\bsp_key_matrix;..\Public;..\App\bsp_smg) DEBUG OBJECTEXTEND PRINT(..\Listing\key_matrix.lst) OBJECT(..\Obj\key_matrix.obj)

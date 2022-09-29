@@ -1,0 +1,19 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+D:\programming learning software\MCU\keilC51\STC89C51-Learning-Project\12，定时器实验\Users\Time0.uvproj
+Project File Date:  09/30/2022
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_10US?PUBLIC
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_SHOW?LED
+Program Size: data=12.0 xdata=0 code=329
+creating hex file from "..\Obj\Time0"...
+"..\Obj\Time0" - 0 Error(s), 2 Warning(s).
