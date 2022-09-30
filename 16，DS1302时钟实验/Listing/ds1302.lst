@@ -1,0 +1,160 @@
+C51 COMPILER V9.01   DS1302                                                                09/30/2022 21:27:36 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE DS1302
+OBJECT MODULE PLACED IN ..\Obj\ds1302.obj
+COMPILER INVOKED BY: D:\programming learning software\MCU\keilC51\C51\BIN\C51.EXE ..\App\bsp_ds1302\ds1302.c BROWSE INCD
+                    -IR(..\App\bsp_ds1302;..\Public;..\App\bsp_smg) DEBUG OBJECTEXTEND PRINT(..\Listing\ds1302.lst) OBJECT(..\Obj\ds1302.obj)
+
+line level    source
+
+   1          #include  "ds1302.h"
+   2          #include "intrins.h"
+   3          
+   4          //---DS1302写入和读取时分秒的地址命令---//
+   5          //---秒分时日月周年 最低位读写位;-------//
+   6          uint_8 gREAD_RTC_ADDR[7] = {0x81, 0x83, 0x85, 0x87, 0x89, 0x8b, 0x8d}; 
+   7          uint_8 gWRITE_RTC_ADDR[7] = {0x80, 0x82, 0x84, 0x86, 0x88, 0x8a, 0x8c};
+   8          
+   9          //---DS1302时钟初始化2022年9月30日星期五21点11分30秒。---//
+  10          //---存储顺序是秒分时日月周年,存储格式是用BCD码---//
+  11          uint_8 gDS1302_TIME[7] = {0x30, 0x11, 0x21, 0x30, 0x09, 0x05, 0x22};
+  12          
+  13          /*
+  14                  函数名：DS1302_Write_Byte
+  15                  功能：  DS1302写单字节函数
+  16          */
+  17          void DS1302_Write_Byte(uint_8 addr,uint_8 dat)
+  18          {
+  19   1              uint_8 i = 0;
+  20   1              
+  21   1              DS1302_RST = 0;
+  22   1              _nop_();        
+  23   1              DS1302_CLK = 0;                 //CLK低电平
+  24   1              _nop_();
+  25   1              DS1302_RST = 1;                 //RST由低到高变化
+  26   1              _nop_();
+  27   1      
+  28   1              for(i=0;i<8;i++)                //先写低位再写高位
+  29   1              {
+  30   2                      DS1302_IO = addr & 0x01;
+  31   2                      addr >>= 1;
+  32   2                      DS1302_CLK = 1;         //CLK由低到高产生上升沿，从而写入数据
+  33   2                      _nop_();
+  34   2                      DS1302_CLK = 0;
+  35   2                      _nop_();                
+  36   2              }
+  37   1              for(i=0;i<8;i++)                //先写低位再写高位
+  38   1              {
+  39   2                      DS1302_IO = dat & 0x01;
+  40   2                      dat >>= 1;
+  41   2                      DS1302_CLK = 1;
+  42   2                      _nop_();
+  43   2                      DS1302_CLK = 0;
+  44   2                      _nop_();                
+  45   2              }
+  46   1              DS1302_RST = 0;                 //RST拉低
+  47   1              _nop_();        
+  48   1      }
+  49          
+  50          /*
+  51                  函数名：DS1302_Read_Byte
+  52                  功能：  DS1302读单字节函数
+  53          */
+  54          uint_8 DS1302_Read_Byte(uint_8 addr)
+C51 COMPILER V9.01   DS1302                                                                09/30/2022 21:27:36 PAGE 2   
+
+  55          {
+  56   1              uint_8 i = 0;
+  57   1              uint_8 temp = 0;
+  58   1              uint_8 value = 0;
+  59   1      
+  60   1              DS1302_RST = 0;
+  61   1              _nop_();        
+  62   1              DS1302_CLK = 0;                 //CLK低电平
+  63   1              _nop_();
+  64   1              DS1302_RST = 1;                 //RST由低到高变化
+  65   1              _nop_();
+  66   1              
+  67   1              for(i=0;i<8;i++)                //先读低位再读高位
+  68   1              {
+  69   2                      DS1302_IO = addr & 0x01;
+  70   2                      addr >>= 1;     
+  71   2                      DS1302_CLK = 1;          //CLK由低到高产生上升沿，从而写入数据
+  72   2                      _nop_();
+  73   2                      DS1302_CLK = 0;
+  74   2                      _nop_();                
+  75   2              }
+  76   1              for(i=0;i<8;i++)                //先读低位再读高位
+  77   1              {
+  78   2                      temp = DS1302_IO;
+  79   2                      value = (temp<<7)|(value>>1);   //先将value右移1位，然后temp左移7位，最后或运算
+  80   2                      DS1302_CLK = 1;
+  81   2                      _nop_();
+  82   2                      DS1302_CLK = 0;
+  83   2                      _nop_();                
+  84   2              }
+  85   1              DS1302_RST = 0;                 //RST拉低
+  86   1              _nop_();        
+  87   1              DS1302_CLK = 1;         //对于P3.4口没有外接上拉电阻的，需添加此代码，使数据口有上升沿脉冲
+  88   1              _nop_();
+  89   1              DS1302_IO = 0;
+  90   1              _nop_();
+  91   1              DS1302_IO = 1;
+  92   1              _nop_();        
+  93   1              return value;           
+  94   1      }
+  95          
+  96          /*
+  97                  函数名：DS1302_Init
+  98                  功能：  DS1302初始化时间函数
+  99          */
+ 100          void DS1302_Init(void)
+ 101          {
+ 102   1              uint_8 i = 0;
+ 103   1              DS1302_Write_Byte(0x8E,0X00);
+ 104   1              for(i=0;i<7;i++)
+ 105   1              {
+ 106   2                      DS1302_Write_Byte(gWRITE_RTC_ADDR[i],gDS1302_TIME[i]);  
+ 107   2              }
+ 108   1              DS1302_Write_Byte(0x8E,0X80);   
+ 109   1      }
+ 110          
+ 111          /*
+ 112                  函数名：DS1302_Read_Time
+ 113                  功能：  DS1302读取时间函数
+ 114          */
+ 115          void DS1302_Read_Time(void)
+ 116          {
+C51 COMPILER V9.01   DS1302                                                                09/30/2022 21:27:36 PAGE 3   
+
+ 117   1              uint_8 i = 0;
+ 118   1              for(i=0;i<7;i++)
+ 119   1              {
+ 120   2                      gDS1302_TIME[i] = DS1302_Read_Byte(gREAD_RTC_ADDR[i]);  
+ 121   2              }       
+ 122   1      }
+ 123          
+ 124          
+ 125          
+ 126          
+ 127          
+ 128          
+ 129          
+ 130          
+ 131          
+ 132          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    184    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     21    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,6 @@
+"..\Obj\main.obj",
+"..\Obj\public.obj",
+"..\Obj\smg.obj",
+"..\Obj\ired.obj" 
+TO "..\Obj\Ired" 
+PRINT("..\Listing\Ired.m51")
