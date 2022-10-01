@@ -1,6 +1,0 @@
-"..\Obj\main.obj",
-"..\Obj\public.obj",
-"..\Obj\step_motor.obj",
-"..\Obj\key.obj" 
-TO "..\Obj\Step_Motor" 
-PRINT("..\Listing\Step_Motor.m51")

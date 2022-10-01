@@ -1,6 +1,0 @@
-"..\Obj\main.obj",
-"..\Obj\public.obj",
-"..\Obj\smg.obj",
-"..\Obj\ds18b20.obj" 
-TO "..\Obj\DS18B20" 
-PRINT("..\Listing\DS18B20.m51")

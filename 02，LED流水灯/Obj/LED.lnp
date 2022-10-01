@@ -1,5 +1,0 @@
-"..\Obj\main.obj",
-"..\Obj\public.obj",
-"..\Obj\led.obj" 
-TO "..\Obj\LED" 
-PRINT("..\Listing\LED.m51")

@@ -1,6 +1,0 @@
-"..\Obj\main.obj",
-"..\Obj\public.obj",
-"..\Obj\key.obj",
-"..\Obj\led.obj" 
-TO "..\Obj\Key" 
-PRINT("..\Listing\Key.m51")

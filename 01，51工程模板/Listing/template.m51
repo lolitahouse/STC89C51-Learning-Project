@@ -1,20 +1,20 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        09/29/2022  13:27:22  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        10/02/2022  00:24:52  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
-D:\PROGRAMMING LEARNING SOFTWARE\MCU\KEILC51\C51\BIN\BL51.EXE .\Obj\main.obj TO .\Obj\template PRINT (.\Listing\template
->> .m51)
+D:\PROGRAMMING LEARNING SOFTWARE\MCU\KEILC51\C51\BIN\BL51.EXE ..\Obj\main.obj TO ..\Obj\template PRINT (..\Listing\templ
+>> ate.m51)
 
 
 MEMORY MODEL: SMALL
 
 
 INPUT MODULES INCLUDED:
-  .\Obj\main.obj (MAIN)
+  ..\Obj\main.obj (MAIN)
   D:\PROGRAMMING LEARNING SOFTWARE\MCU\KEILC51\C51\LIB\C51S.LIB (?C_STARTUP)
 
 
-LINK MAP OF MODULE:  .\Obj\template (MAIN)
+LINK MAP OF MODULE:  ..\Obj\template (MAIN)
 
 
             TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
@@ -31,7 +31,7 @@ LINK MAP OF MODULE:  .\Obj\template (MAIN)
 
 
 
-OVERLAY MAP OF MODULE:   .\Obj\template (MAIN)
+OVERLAY MAP OF MODULE:   ..\Obj\template (MAIN)
 
 
 SEGMENT
@@ -42,7 +42,7 @@ SEGMENT
 
 
 
-SYMBOL TABLE OF MODULE:  .\Obj\template (MAIN)
+SYMBOL TABLE OF MODULE:  ..\Obj\template (MAIN)
 
   VALUE           TYPE          NAME
   ----------------------------------
@@ -59,7 +59,7 @@ SYMBOL TABLE OF MODULE:  .\Obj\template (MAIN)
   D:00C8H         PUBLIC        T2CON
   D:00D0H         PUBLIC        PSW
   -------         PROC          MAIN
-BL51 BANKED LINKER/LOCATER V6.22                                                      09/29/2022  13:27:22  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/02/2022  00:24:52  PAGE 2
 
 
   C:000FH         LINE#         3

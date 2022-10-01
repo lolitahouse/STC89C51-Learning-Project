@@ -1,1 +1,0 @@
-"..\App\bsp_smg\smg.c" BROWSE INCDIR(..\App\bsp_smg;..\Public) DEBUG OBJECTEXTEND PRINT(..\Listing\smg.lst) OBJECT(..\Obj\smg.obj)

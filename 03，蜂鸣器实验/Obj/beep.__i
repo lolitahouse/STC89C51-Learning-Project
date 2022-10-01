@@ -1,1 +1,0 @@
-"..\App\bsp_beep\beep.c" BROWSE INCDIR(..\App\bsp_beep;..\Public) DEBUG OBJECTEXTEND PRINT(..\Listing\beep.lst) OBJECT(..\Obj\beep.obj)

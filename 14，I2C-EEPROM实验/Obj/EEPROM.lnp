@@ -1,8 +1,0 @@
-"..\Obj\main.obj",
-"..\Obj\public.obj",
-"..\Obj\24c02.obj",
-"..\Obj\iic.obj",
-"..\Obj\key.obj",
-"..\Obj\smg.obj" 
-TO "..\Obj\EEPROM" 
-PRINT("..\Listing\EEPROM.m51")

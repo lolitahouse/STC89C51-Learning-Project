@@ -1,1 +1,0 @@
-"..\App\bsp_key\key.c" BROWSE INCDIR(..\App\bsp_24c02;..\Public;..\App\bsp_iic;..\App\bsp_key;..\App\bsp_smg) DEBUG OBJECTEXTEND PRINT(..\Listing\key.lst) OBJECT(..\Obj\key.obj)

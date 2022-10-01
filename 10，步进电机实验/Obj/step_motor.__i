@@ -1,1 +1,0 @@
-"..\App\bsp_step_motor\step_motor.c" BROWSE INCDIR(..\App\bsp_step_motor;..\Public;..\App\bsp_key) DEBUG OBJECTEXTEND PRINT(..\Listing\step_motor.lst) OBJECT(..\Obj\step_motor.obj)

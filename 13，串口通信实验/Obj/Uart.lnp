@@ -1,4 +1,0 @@
-"..\Obj\main.obj",
-"..\Obj\public.obj" 
-TO "..\Obj\Uart" 
-PRINT("..\Listing\Uart.m51")

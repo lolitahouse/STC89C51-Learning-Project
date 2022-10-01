@@ -1,1 +1,0 @@
-"..\App\bsp_hc595\hc595.c" BROWSE INCDIR(..\App\bsp_hc595;..\Public) DEBUG OBJECTEXTEND PRINT(..\Listing\hc595.lst) OBJECT(..\Obj\hc595.obj)

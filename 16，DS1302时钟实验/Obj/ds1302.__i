@@ -1,1 +1,0 @@
-"..\App\bsp_ds1302\ds1302.c" BROWSE INCDIR(..\App\bsp_ds1302;..\Public;..\App\bsp_smg) DEBUG OBJECTEXTEND PRINT(..\Listing\ds1302.lst) OBJECT(..\Obj\ds1302.obj)

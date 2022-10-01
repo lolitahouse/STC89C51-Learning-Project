@@ -1,1 +1,0 @@
-"..\App\bsp_lcd12864\lcd12864.c" BROWSE INCDIR(..\App\bsp_lcd12864;..\Public) DEBUG OBJECTEXTEND PRINT(..\Listing\lcd12864.lst) OBJECT(..\Obj\lcd12864.obj)

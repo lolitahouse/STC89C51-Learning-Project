@@ -1,5 +1,0 @@
-"..\Obj\main.obj",
-"..\Obj\public.obj",
-"..\Obj\smg.obj" 
-TO "..\Obj\Smg" 
-PRINT("..\Listing\Smg.m51")
