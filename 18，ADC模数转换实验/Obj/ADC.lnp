@@ -1,0 +1,6 @@
+"..\Obj\main.obj",
+"..\Obj\public.obj",
+"..\Obj\smg.obj",
+"..\Obj\xpt2046.obj" 
+TO "..\Obj\ADC" 
+PRINT("..\Listing\ADC.m51")

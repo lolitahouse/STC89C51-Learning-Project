@@ -1,0 +1,5 @@
+"..\Obj\main.obj",
+"..\Obj\public.obj",
+"..\Obj\pwm.obj" 
+TO "..\Obj\DAC" 
+PRINT("..\Listing\DAC.m51")

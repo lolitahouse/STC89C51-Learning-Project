@@ -1,0 +1,93 @@
+C51 COMPILER V9.01   PWM                                                                   10/01/2022 20:09:40 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE PWM
+OBJECT MODULE PLACED IN ..\Obj\pwm.obj
+COMPILER INVOKED BY: D:\programming learning software\MCU\keilC51\C51\BIN\C51.EXE ..\App\bsp_pwm\pwm.c BROWSE INCDIR(..\
+                    -App\bsp_pwm;..\Public) DEBUG OBJECTEXTEND PRINT(..\Listing\pwm.lst) OBJECT(..\Obj\pwm.obj)
+
+line level    source
+
+   1          #include  "pwm.h"
+   2          
+   3          
+   4          //定义全局变量
+   5          uint_8 gtim_h = 0;              //保存定时器初值高8位
+   6          uint_8 gtim_l = 0;              //保存定时器初值低8位
+   7          uint_8 gduty = 0;               //保存PWM占空比
+   8          uint_8 gtim_scale = 0;  //保存PWM周期=定时器初值*tim_scale
+   9          
+  10          
+  11          /*
+  12                  函数名：PWM_Init
+  13                  功能：  PWM初始化函数
+  14          */
+  15          void PWM_Init(uint_8 tim_h,uint_8 tim_l,uint_16 tim_scale,uint_8 duty)
+  16          {
+  17   1              gtim_h = tim_h;                 //将传入的初值保存在全局变量中，方便中断函数继续调用
+  18   1              gtim_l = tim_l;
+  19   1              gduty = duty;
+  20   1              gtim_scale = tim_scale;
+  21   1      
+  22   1              TMOD|=0X01;                             //选择为定时器0模式，工作方式1
+  23   1              TH0 = gtim_h;                   //定时初值设置 
+  24   1              TL0 = gtim_l;           
+  25   1              ET0 = 1;                                //打开定时器0中断允许
+  26   1              EA = 1;                                 //打开总中断
+  27   1              TR0 = 1;                                //打开定时器
+  28   1      }
+  29          
+  30          /*
+  31                  函数名：PWM_Set_Duty_Cycle
+  32                  功能：  PWM设置占空比函数
+  33          */
+  34          void PWM_Set_Duty_Cycle(uint_8 duty)
+  35          {
+  36   1              gduty = duty;   
+  37   1      }
+  38          
+  39          
+  40          /*
+  41                    定时器0中断函数
+  42          */
+  43          void pwm(void) interrupt 1
+  44          {
+  45   1              static uint_16 time = 0;
+  46   1      
+  47   1              TH0 = gtim_h;   //定时初值设置 
+  48   1              TL0 = gtim_l;
+  49   1              
+  50   1              time++;
+  51   1              if(time >= gtim_scale)          //PWM周期=定时器初值*gtim_scale，重新开始计数
+  52   1                      time = 0;
+  53   1              if(time <= gduty)                       //占空比        
+  54   1                      PWM = 1;
+C51 COMPILER V9.01   PWM                                                                   10/01/2022 20:09:40 PAGE 2   
+
+  55   1              else
+  56   1                      PWM = 0;                
+  57   1      }
+  58          
+  59          
+  60          
+  61          
+  62          
+  63          
+  64          
+  65          
+  66          
+  67          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     83    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      6       5
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,189 @@
+C51 COMPILER V9.01   XPT2046                                                               10/01/2022 02:13:14 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE XPT2046
+OBJECT MODULE PLACED IN ..\Obj\xpt2046.obj
+COMPILER INVOKED BY: D:\programming learning software\MCU\keilC51\C51\BIN\C51.EXE ..\App\bsp_xpt2046\xpt2046.c BROWSE IN
+                    -CDIR(..\App\bsp_xpt2046;..\Public;..\App\bsp_smg) DEBUG OBJECTEXTEND PRINT(..\Listing\xpt2046.lst) OBJECT(..\Obj\xpt2046
+                    -.obj)
+
+line level    source
+
+   1          #include  "xpt2046.h"
+   2          #include "intrins.h"
+   3          #include  "smg.h"
+   4          
+   5          
+   6          /*
+   7                  函数名： XPT2046_Wirte_Data
+   8                  功能：   XPT2046写数据
+   9          */
+  10          void XPT2046_Wirte_Data(uint_8 dat)
+  11          {
+  12   1              uint_8 i = 0;
+  13   1      
+  14   1              CLK = 0;
+  15   1              _nop_();
+  16   1              for(i=0;i<8;i++)                //传输一个字节
+  17   1              {
+  18   2                      DIN = dat >> 7;         //先传高位再传低位
+  19   2                      dat <<= 1;                      //将低位移到高位
+  20   2                      CLK = 1;                        //CLK由低到高产生上升沿，从而写入数据
+  21   2                      _nop_();        
+  22   2                      CLK = 0;
+  23   2                      _nop_();
+  24   2              }
+  25   1      }
+  26          
+  27          
+  28          /*
+  29                  函数名： XPT2046_Read_Data
+  30                  功能：   XPT2046读数据
+  31          */
+  32          uint_16 XPT2046_Read_Data(void)
+  33          {
+  34   1              uint_8 i = 0;
+  35   1              uint_16 dat = 0;
+  36   1      
+  37   1              CLK = 0;
+  38   1              _nop_();
+  39   1              for(i=0;i<12;i++)       //大于一个字节数，所以返回值类型是uint_16
+  40   1              {
+  41   2                      dat <<= 1;
+  42   2                      CLK = 1;
+  43   2                      _nop_();
+  44   2                      CLK = 0;                //CLK由高到低产生一个下降沿，从而读取数据
+  45   2                      _nop_();
+  46   2                      dat |= DOUT;    //读输出的数据，先读高位再读低位        
+  47   2              }
+  48   1              return dat;     
+  49   1      }
+  50          
+  51          /*
+  52                  函数名： XPT2046_Read_ADC_Value
+  53                  功能：   XPT2046读AD数据
+C51 COMPILER V9.01   XPT2046                                                               10/01/2022 02:13:14 PAGE 2   
+
+  54          */
+  55          uint_16 XPT2046_Read_ADC_Value(uint_8 cmd)
+  56          {
+  57   1              uint_8 i = 0;
+  58   1              uint_16 adc_value = 0;
+  59   1      
+  60   1              CLK = 0;                                        //先拉低时钟
+  61   1              CS  = 0;                                        //使能XPT2046
+  62   1              XPT2046_Wirte_Data(cmd);        //发送命令字
+  63   1              for(i=6; i>0; i--);                     //延时等待转换结果
+  64   1              CLK = 0;
+  65   1              _nop_();
+  66   1              CLK = 1;                                        //发送一个时钟，清除BUSY
+  67   1              _nop_();
+  68   1              adc_value = XPT2046_Read_Data();
+  69   1              CS = 1;                                         //关闭XPT2046
+  70   1              return adc_value;
+  71   1      }
+  72          
+  73          /*
+  74                  函数名：Electricity_Measure
+  75                  功能：  测量电位器电压
+  76          */
+  77          void Electricity_Measure(void)
+  78          {
+  79   1              static uint_16 adc_value = 0;
+  80   1              static float adc_vol = 0.0;                     //ADC电压值
+  81   1              static uint_8 adc_buf[3] = 0;
+  82   1                                      
+  83   1              adc_value = XPT2046_Read_ADC_Value(0x94);               //测量电位器
+  84   1              adc_vol = 5.0*adc_value/4096;                                   //将读取的AD值转换为电压
+  85   1              adc_value = adc_vol*10;                                         //放大10倍，即保留小数点后一位
+  86   1              adc_buf[0] = gSmg_init_code[adc_value/10]|0x80;
+  87   1              adc_buf[1] = gSmg_init_code[adc_value%10];
+  88   1              adc_buf[2] = 0x3e;                                                      //显示单位V
+  89   1      
+  90   1              Smg_Display(adc_buf,SHOW_POSITION);             
+  91   1      }
+  92          
+  93          
+  94          /*
+  95                  函数名：Light_Measure
+  96                  功能：  测量光敏电阻
+  97          */
+  98          void Light_Measure(void)
+  99          {       
+ 100   1              static uint_16 adc_value = 0;
+ 101   1              static uint_8 adc_buf[4] = 0;
+ 102   1      
+ 103   1              while(1)
+ 104   1              {                               
+ 105   2                      adc_value = XPT2046_Read_ADC_Value(0xA4);               //测量光敏电阻
+ 106   2                      adc_buf[0] = gSmg_init_code[adc_value/1000];
+ 107   2                      adc_buf[1] = gSmg_init_code[adc_value%1000/100];
+ 108   2                      adc_buf[2] = gSmg_init_code[adc_value%1000%100/10];
+ 109   2                      adc_buf[3] = gSmg_init_code[adc_value%1000%100%10];
+ 110   2      
+ 111   2                      Smg_Display(adc_buf,5);         
+ 112   2              }               
+ 113   1      }
+ 114          
+ 115          /*
+C51 COMPILER V9.01   XPT2046                                                               10/01/2022 02:13:14 PAGE 3   
+
+ 116                  函数名：Light_Measure
+ 117                  功能：  测量热敏电阻
+ 118          */
+ 119          void Heat_Measure(void)
+ 120          {       
+ 121   1              static uint_16 adc_value = 0;
+ 122   1              static uint_8 adc_buf[4] = 0;
+ 123   1      
+ 124   1              while(1)
+ 125   1              {                               
+ 126   2                      adc_value = XPT2046_Read_ADC_Value(0xD4);                       //测量热敏电阻
+ 127   2                      adc_buf[0] = gSmg_init_code[adc_value/1000];
+ 128   2                      adc_buf[1] = gSmg_init_code[adc_value%1000/100];
+ 129   2                      adc_buf[2] = gSmg_init_code[adc_value%1000%100/10];
+ 130   2                      adc_buf[3] = gSmg_init_code[adc_value%1000%100%10];
+ 131   2      
+ 132   2                      Smg_Display(adc_buf,5);         
+ 133   2              }               
+ 134   1      }
+ 135                   
+ 136          
+ 137          /*
+ 138                  函数名：Voltage_Collect
+ 139                  功能：  外部通道电压采集
+ 140          */
+ 141          void Voltage_Collect(void)
+ 142          {       
+ 143   1              static uint_16 adc_value = 0;
+ 144   1              static float adc_vol = 0.0;                     //ADC电压值
+ 145   1              static uint_8 adc_buf[3] = 0;
+ 146   1      
+ 147   1              while(1)
+ 148   1              {                               
+ 149   2                      adc_value = XPT2046_Read_ADC_Value(0xE4);               //测量外部输入通道AIN3
+ 150   2                      adc_vol = 5.0*adc_value/4096;                                   //将读取的AD值转换为电压
+ 151   2                      adc_value = adc_vol*10;                                                 //放大10倍，即保留小数点后一位
+ 152   2                      adc_buf[0] = gSmg_init_code[adc_value/10]|0x80;
+ 153   2                      adc_buf[1] = gSmg_init_code[adc_value%10];
+ 154   2                      adc_buf[2] = 0x3e;                                                      //显示单位V
+ 155   2      
+ 156   2                      Smg_Display(adc_buf,SHOW_POSITION);             
+ 157   2              }               
+ 158   1      }
+ 159          
+ 160          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    567    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     30    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

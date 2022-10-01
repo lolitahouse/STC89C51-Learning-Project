@@ -1,0 +1,1 @@
+"..\App\bsp_xpt2046\xpt2046.c" BROWSE INCDIR(..\App\bsp_xpt2046;..\Public;..\App\bsp_smg) DEBUG OBJECTEXTEND PRINT(..\Listing\xpt2046.lst) OBJECT(..\Obj\xpt2046.obj)
