@@ -198,14 +198,14 @@
     <cbSel>0</cbSel>
     <File>
       <GroupNumber>3</GroupNumber>
-      <FileNumber>0</FileNumber>
+      <FileNumber>3</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>16</ColumnNumber>
+      <ColumnNumber>17</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>1</TopLine>
-      <CurrentLine>15</CurrentLine>
+      <CurrentLine>16</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\App\bsp_led\led.c</PathWithFileName>
       <FilenameWithoutPath>led.c</FilenameWithoutPath>
@@ -213,7 +213,7 @@
   </Group>
 
   <AlienFiles>
-    <PathWithFilename>D:\programming learning software\MCU\keilC51\STC89C51-Learning-Project\2，LED流水灯\App\bsp_led\led.h</PathWithFilename>
+    <PathWithFilename>D:\programming learning software\MCU\keilC51\STC89C51-Learning-Project\02，LED流水灯\APP\BSP_LED\LED.H</PathWithFilename>
     <TopLine>1</TopLine>
     <CurrentLine>12</CurrentLine>
     <Constant>0</Constant>
@@ -1579,7 +1579,7 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>3</ActiveTab>
+      <ActiveTab>2</ActiveTab>
       <Documents>
         <Doc>
           <Name>.\main.c</Name>
@@ -1595,9 +1595,9 @@
         </Doc>
         <Doc>
           <Name>..\App\bsp_led\led.c</Name>
-          <ColumnNumber>16</ColumnNumber>
+          <ColumnNumber>17</ColumnNumber>
           <TopLine>1</TopLine>
-          <CurrentLine>15</CurrentLine>
+          <CurrentLine>16</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\APP\BSP_LED\LED.H</Name>

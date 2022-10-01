@@ -160,10 +160,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>16</ColumnNumber>
+      <ColumnNumber>13</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>1</TopLine>
-      <CurrentLine>9</CurrentLine>
+      <CurrentLine>15</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
@@ -179,12 +179,12 @@
       <GroupNumber>2</GroupNumber>
       <FileNumber>2</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>24</ColumnNumber>
+      <ColumnNumber>12</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>1</TopLine>
-      <CurrentLine>17</CurrentLine>
+      <CurrentLine>2</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\Public\public.c</PathWithFileName>
       <FilenameWithoutPath>public.c</FilenameWithoutPath>
@@ -193,29 +193,29 @@
 
   <Group>
     <GroupName>App</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <File>
-      <GroupNumber>0</GroupNumber>
+      <GroupNumber>3</GroupNumber>
       <FileNumber>0</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>16</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>1</TopLine>
+      <CurrentLine>15</CurrentLine>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\bsp_led\led.c</PathWithFileName>
+      <PathWithFileName>..\App\bsp_led\led.c</PathWithFileName>
       <FilenameWithoutPath>led.c</FilenameWithoutPath>
     </File>
   </Group>
 
   <AlienFiles>
-    <PathWithFilename>D:\programming learning software\MCU\keilC51\STC89C51-Learning-Project\2，LED流水灯\Public\public.h</PathWithFilename>
+    <PathWithFilename>D:\programming learning software\MCU\keilC51\STC89C51-Learning-Project\2，LED流水灯\App\bsp_led\led.h</PathWithFilename>
     <TopLine>1</TopLine>
-    <CurrentLine>13</CurrentLine>
+    <CurrentLine>12</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -1579,25 +1579,31 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>2</ActiveTab>
+      <ActiveTab>3</ActiveTab>
       <Documents>
         <Doc>
           <Name>.\main.c</Name>
-          <ColumnNumber>16</ColumnNumber>
+          <ColumnNumber>13</ColumnNumber>
           <TopLine>1</TopLine>
-          <CurrentLine>9</CurrentLine>
+          <CurrentLine>15</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\Public\public.c</Name>
-          <ColumnNumber>24</ColumnNumber>
+          <ColumnNumber>12</ColumnNumber>
           <TopLine>1</TopLine>
-          <CurrentLine>17</CurrentLine>
+          <CurrentLine>2</CurrentLine>
         </Doc>
         <Doc>
-          <Name>..\PUBLIC\PUBLIC.H</Name>
-          <ColumnNumber>43</ColumnNumber>
+          <Name>..\App\bsp_led\led.c</Name>
+          <ColumnNumber>16</ColumnNumber>
           <TopLine>1</TopLine>
-          <CurrentLine>13</CurrentLine>
+          <CurrentLine>15</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>..\APP\BSP_LED\LED.H</Name>
+          <ColumnNumber>20</ColumnNumber>
+          <TopLine>1</TopLine>
+          <CurrentLine>12</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>

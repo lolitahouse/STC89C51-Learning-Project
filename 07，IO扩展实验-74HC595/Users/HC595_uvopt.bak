@@ -160,10 +160,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>1</ColumnNumber>
+      <ColumnNumber>34</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>1</TopLine>
-      <CurrentLine>11</CurrentLine>
+      <CurrentLine>19</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
@@ -172,7 +172,7 @@
 
   <Group>
     <GroupName>Public</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <File>
@@ -181,10 +181,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>13</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>1</TopLine>
+      <CurrentLine>16</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\Public\public.c</PathWithFileName>
       <FilenameWithoutPath>public.c</FilenameWithoutPath>
@@ -198,11 +198,11 @@
     <cbSel>0</cbSel>
     <File>
       <GroupNumber>3</GroupNumber>
-      <FileNumber>0</FileNumber>
+      <FileNumber>3</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>14</ColumnNumber>
+      <ColumnNumber>25</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>1</TopLine>
       <CurrentLine>1</CurrentLine>
@@ -213,9 +213,9 @@
   </Group>
 
   <AlienFiles>
-    <PathWithFilename>D:\programming learning software\MCU\keilC51\STC89C51-Learning-Project\7，IO扩展实验-74HC595\App\bsp_hc595\hc595.h</PathWithFilename>
+    <PathWithFilename>D:\programming learning software\MCU\keilC51\STC89C51-Learning-Project\7，IO扩展实验-74HC595\APP\BSP_HC595\HC595.H</PathWithFilename>
     <TopLine>1</TopLine>
-    <CurrentLine>6</CurrentLine>
+    <CurrentLine>18</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -1579,25 +1579,31 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>2</ActiveTab>
+      <ActiveTab>1</ActiveTab>
       <Documents>
         <Doc>
           <Name>.\main.c</Name>
-          <ColumnNumber>1</ColumnNumber>
+          <ColumnNumber>34</ColumnNumber>
           <TopLine>1</TopLine>
-          <CurrentLine>11</CurrentLine>
+          <CurrentLine>19</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\App\bsp_hc595\hc595.c</Name>
-          <ColumnNumber>14</ColumnNumber>
+          <ColumnNumber>25</ColumnNumber>
           <TopLine>1</TopLine>
           <CurrentLine>1</CurrentLine>
         </Doc>
         <Doc>
           <Name>..\APP\BSP_HC595\HC595.H</Name>
-          <ColumnNumber>17</ColumnNumber>
+          <ColumnNumber>25</ColumnNumber>
           <TopLine>1</TopLine>
-          <CurrentLine>6</CurrentLine>
+          <CurrentLine>18</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>..\Public\public.c</Name>
+          <ColumnNumber>13</ColumnNumber>
+          <TopLine>1</TopLine>
+          <CurrentLine>16</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>
